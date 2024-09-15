@@ -27,7 +27,7 @@ const Users = () => {
             const confirmDelete = window.confirm("Are you sure you want to delete this user?");
             if (!confirmDelete) return;
 
-            await axios.delete(`http://localhost:5000/apiUsers/users/${userId}`, {
+            await axios.delete(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -49,7 +49,7 @@ const Users = () => {
                 return message.error("All fields are required.");
             }
 
-            await axios.put(`http://localhost:5000/apiUsers/users/${selectedUser._id}`, selectedUser, {
+            await axios.put(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${selectedUser._id}`, selectedUser, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

@@ -29,7 +29,7 @@ const Register = () => {
   const onSubmit = async (values, { setSubmitting }) => {
     setLoading(true);
     try {
-      const response = await axios.post('http://localhost:5000/apiUsers/register', values);
+      const response = await axios.post('https://capstone-backend-05tj.onrender.com/apiUsers/register', values);
       if (response.data) {
         sessionStorage.setItem('user', JSON.stringify(response.data));
         message.success('Registration successful');
