@@ -37,59 +37,41 @@ export const AuthProvider = ({ children }) => {
         }
     };
 
+    
     const fetchUserDetails = async () => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            try {
-                const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
-                    headers: {
-                        'Authorization': `Bearer ${localStorage.getItem('token')}`,
-                        'Content-Type': 'application/json',
-                    },
-                });
-                setUsers(response.data);
-            } catch (error) {
-                console.error('Error fetching user details:', error);
-                throw error;
-            }
-        } else {
-            throw new Error('No token found');
-        }
-    };
-//     const fetchUserDetails = async () => {
-//     const token = localStorage.getItem('token'); // Retrieve the token once
+    const token = localStorage.getItem('token'); // Retrieve the token once
 
-//     if (token) {
-//         try {
-//             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
-//                 headers: {
-//                     'Authorization': `Bearer ${token}`,  // Use the token from localStorage
-//                     'Content-Type': 'application/json',
-//                 },
-//             });
+    if (token) {
+        try {
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,  // Use the token from localStorage
+                    'Content-Type': 'application/json',
+                },
+            });
 
-//             // Log the response to ensure you're receiving the correct data
-//             console.log('User details fetched successfully:', response.data);
+            // Log the response to ensure you're receiving the correct data
+            console.log('User details fetched successfully:', response.data);
             
-//             setUsers(response.data);  // Assuming the user data is directly available in response.data
+            setUsers(response.data);  // Assuming the user data is directly available in response.data
 
-//         } catch (error) {
-//             if (error.response) {
-//                 // The request was made and the server responded with a status code that falls out of the range of 2xx
-//                 console.error('Error fetching user details:', error.response.data);
-//                 console.error('Status code:', error.response.status);
-//             } else if (error.request) {
-//                 // The request was made but no response was received
-//                 console.error('No response received:', error.request);
-//             } else {
-//                 // Something happened in setting up the request that triggered an Error
-//                 console.error('Error in setting up the request:', error.message);
-//             }
-//         }
-//     } else {
-//         console.error('No token found');
-//     }
-// };
+        } catch (error) {
+            if (error.response) {
+                // The request was made and the server responded with a status code that falls out of the range of 2xx
+                console.error('Error fetching user details:', error.response.data);
+                console.error('Status code:', error.response.status);
+            } else if (error.request) {
+                // The request was made but no response was received
+                console.error('No response received:', error.request);
+            } else {
+                // Something happened in setting up the request that triggered an Error
+                console.error('Error in setting up the request:', error.message);
+            }
+        }
+    } else {
+        console.error('No token found');
+    }
+};
 
 
     const updateUserDetails = async (updatedDetails) => {
