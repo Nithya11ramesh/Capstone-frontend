@@ -96,7 +96,7 @@ export const AuthProvider = ({ children }) => {
         try {
             const response = await axios.post('https://capstone-backend-05tj.onrender.com/apiUsers/login', credentials, {
                 headers: {
-                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                  
                     'Content-Type': 'application/json',
                 },
             });
