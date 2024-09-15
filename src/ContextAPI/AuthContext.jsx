@@ -18,7 +18,7 @@ export const AuthProvider = ({ children }) => {
         setError(null);
 
         try {
-            const response = await axios.get('http://localhost:5000/apiUsers/users', {
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/users', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             try {
-                const response = await axios.get('http://localhost:5000/apiUsers/user/details', {
+                const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
                     headers: {
                         'Authorization': `Bearer ${localStorage.getItem('token')}`,
                         'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export const AuthProvider = ({ children }) => {
     const updateUserDetails = async (updatedDetails) => {
         setLoading(true);
         try {
-            const response = await axios.put('http://localhost:5000/apiUsers/user/update', updatedDetails, {
+            const response = await axios.put('https://capstone-backend-05tj.onrender.com/apiUsers/user/update', updatedDetails, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -77,7 +77,7 @@ export const AuthProvider = ({ children }) => {
 
     const login = async (credentials) => {
         try {
-            const response = await axios.post('http://localhost:5000/apiUsers/login', credentials, {
+            const response = await axios.post('https://capstone-backend-05tj.onrender.com/apiUsers/login', credentials, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export const AuthProvider = ({ children }) => {
     };
     const forgotPassword = async (email) => {
         try {
-            const response = await axios.post('http://localhost:5000/apiUsers/forgot-password', { email }, {
+            const response = await axios.post('https://capstone-backend-05tj.onrender.com/apiUsers/forgot-password', { email }, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -111,7 +111,7 @@ export const AuthProvider = ({ children }) => {
 
     const resetPassword = async (token, password) => {
         try {
-            const response = await axios.post(`http://localhost:5000/apiUsers/reset-password/${token}`, { password }, {
+            const response = await axios.post(`https://capstone-backend-05tj.onrender.com/apiUsers/reset-password/${token}`, { password }, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -132,7 +132,7 @@ export const AuthProvider = ({ children }) => {
     const fetchInstructors = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/apiUsers/user/instructor', {
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/instructor', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

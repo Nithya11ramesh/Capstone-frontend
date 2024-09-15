@@ -13,7 +13,7 @@ export const CourseProvider = ({ children }) => {
     const fetchCourses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('http://localhost:5000/apiCourses/getCourses', {
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiCourses/getCourses', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -35,7 +35,7 @@ export const CourseProvider = ({ children }) => {
     const fetchCourseById = async (courseId) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/apiCourses/${courseId}`, {
+            const response = await axios.get(`https://capstone-backend-05tj.onrender.com/apiCourses/${courseId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -66,7 +66,7 @@ export const CourseProvider = ({ children }) => {
                     formData.append('media', file);
                 }
             }
-            const response = await axios.post('http://localhost:5000/apiCourses', formData, {
+            const response = await axios.post('https://capstone-backend-05tj.onrender.com/apiCourses', formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -97,7 +97,7 @@ export const CourseProvider = ({ children }) => {
                 }
             }
 
-            const response = await axios.put(`http://localhost:5000/apiCourses/${courseId}`, formData, {
+            const response = await axios.put(`https://capstone-backend-05tj.onrender.com/apiCourses/${courseId}`, formData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -118,7 +118,7 @@ export const CourseProvider = ({ children }) => {
     const deleteCourse = async (courseId) => {
         setLoading(true);
         try {
-            await axios.delete(`http://localhost:5000/apiCourses/${courseId}`, {
+            await axios.delete(`https://capstone-backend-05tj.onrender.com/apiCourses/${courseId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },

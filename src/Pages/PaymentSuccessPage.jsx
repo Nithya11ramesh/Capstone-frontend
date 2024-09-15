@@ -14,7 +14,7 @@ const PaymentSuccessPage = () => {
     useEffect(() => {
         // Fetch the payment intent details to confirm the status
         if (paymentIntentId) {
-            axios.get(`http://localhost:5000/apiPayments/payment-status/${paymentIntentId}`)
+            axios.get(`https://capstone-backend-05tj.onrender.com/apiPayments/payment-status/${paymentIntentId}`)
                 .then(response => {
                     setPaymentStatus(response.data.status);
                     setLoading(false);

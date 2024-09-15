@@ -42,7 +42,7 @@ export const QuizProvider = ({ children }) => {
     
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/apiQuizzes/${quizId}`, {
+            const response = await axios.get(`https://capstone-backend-05tj.onrender.com/apiQuizzes/${quizId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -82,7 +82,7 @@ export const QuizProvider = ({ children }) => {
 
     const createQuiz = async (courseId, quizData) => {
         try {
-            const response = await axios.post(`http://localhost:5000/apiQuizzes/${courseId}`, quizData, {
+            const response = await axios.post(`https://capstone-backend-05tj.onrender.com/apiQuizzes/${courseId}`, quizData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -98,7 +98,7 @@ export const QuizProvider = ({ children }) => {
 
     const updateQuiz = async (quizId, quizData) => {
         try {
-            const response = await axios.put(`http://localhost:5000/apiQuizzes/${quizId}`, quizData, {
+            const response = await axios.put(`https://capstone-backend-05tj.onrender.com/apiQuizzes/${quizId}`, quizData, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -118,7 +118,7 @@ export const QuizProvider = ({ children }) => {
 
     const deleteQuiz = async (quizId) => {
         try {
-            await axios.delete(`http://localhost:5000/apiQuizzes/${quizId}`, {
+            await axios.delete(`https://capstone-backend-05tj.onrender.com/apiQuizzes/${quizId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -131,7 +131,7 @@ export const QuizProvider = ({ children }) => {
 
     const updateQuizGrade = async (quizId, answers) => {
         try {
-            const response = await axios.post(`http://localhost:5000/apiQuizzes/${quizId}/grade`, { answers }, {
+            const response = await axios.post(`https://capstone-backend-05tj.onrender.com/apiQuizzes/${quizId}/grade`, { answers }, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json',
@@ -150,7 +150,7 @@ export const QuizProvider = ({ children }) => {
     const fetchTotalQuizGrade = async (courseId) => {
         setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/apiQuizzes/totalGrade/${courseId}`, {
+            const response = await axios.get(`https://capstone-backend-05tj.onrender.com/apiQuizzes/totalGrade/${courseId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -167,7 +167,7 @@ export const QuizProvider = ({ children }) => {
     const deleteSubmission = async (submissionId) => {
         setLoading(true);
         try {
-            await axios.delete(`http://localhost:5000/apiQuizzes/submissions/${submissionId}`, {
+            await axios.delete(`https://capstone-backend-05tj.onrender.com/apiQuizzes/submissions/${submissionId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 }
