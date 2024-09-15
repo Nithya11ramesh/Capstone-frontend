@@ -1,0 +1,10 @@
+.App{
+  
+   
+    background-size: cover;
+    
+}
+body {
+  font-family: "Roboto" !important; 
+  scroll-behavior: smooth;
+}
