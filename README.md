@@ -20,22 +20,26 @@ Admin Functionalities:
                      1.Edit the user details.
                      2.DELETE the user details.
 
-                     b)Course-Management:An admin can access the course management task such as
+              b)Course-Management:An admin can access the course management task such as
+              
                      1. Create new lessons,assignment,quizzes and more.
                      2.Delete the course and able to create new course.
 
-                     C)Enrollments:An admin can able enroll the student details and able to edit as well as update.
+             C)Enrollments:An admin can able enroll the student details and able to edit as well as update.
+
+             D)Quizzes:Depends on the lesson instructor can create the quizes,grade and comments the qiuz.
 
            Admin email:capstoneback@gmail.com
            password:back@123
 
 Instructor Fuctionalities:
+
             An instructor can access courses-Management such as
             a)LESSONS-Create the lesson,edit and delete
             b)Assignments-Can create assignment and grade the assignment.
             c)Quizes-Can manage quizzes
 
-          Instructor email:payload@gmai.com
+          Instructor email:payload@gmail.com
           password:loadpay12
           
   Payment Page:
