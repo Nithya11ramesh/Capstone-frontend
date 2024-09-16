@@ -71,31 +71,36 @@ return (
                         {!users && (
                             <>
                                 <Nav.Link as={Link} to="/home"style={{
-                    backgroundColor: 'blue',
-                    color: 'white',
+                    backgroundColor: 'pink',
+                    color: 'black',
                     padding: '10px 20px',
                     borderRadius: '20px',
                     textAlign: 'center',
                     marginRight: '10px',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    border:'1px solid black'
                 }}>Home</Nav.Link>
+                &nbsp;
                                 <Nav.Link as={Link} to="/about"style={{
-                    backgroundColor: 'blue',
-                    color: 'white',
+                    backgroundColor: 'pink',
+                    color: 'black',
                     padding: '10px 20px',
                     borderRadius: '20px',
                     textAlign: 'center',
                     marginRight: '10px',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    border:'1px solid black'
                 }}>About</Nav.Link>
+                &nbsp;
                                 <Nav.Link as={Link} to="/courses"style={{
-                    backgroundColor: 'blue',
-                    color: 'white',
+                    backgroundColor: 'pink',
+                    color: 'black',
                     padding: '10px 20px',
                     borderRadius: '20px',
                     textAlign: 'center',
                     marginRight: '10px',
-                    textDecoration: 'none'
+                    textDecoration: 'none',
+                    border:'1px solid black'
                 }}>Courses</Nav.Link>
                             </>
                         )}

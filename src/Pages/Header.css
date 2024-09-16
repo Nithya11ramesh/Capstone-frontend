@@ -1,6 +1,6 @@
 .smart-bar {
-    background-color: #f8d7da; /* Light red background */
-    color: #721c24; /* Dark red text */
+    background-color: rgb(173, 173, 20); /* Light red background */
+    color: #131212; /* Dark red text */
     text-align: center;
     padding: 10px;
     position: relative;

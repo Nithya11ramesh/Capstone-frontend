@@ -18,7 +18,7 @@ const CourseDetails = () => {
     return (
 
         <div className="container py-5">
-            <div className="card mb-3 py-5">
+            <div className="card mb-2 py-1">
 
 
                 <div className="row g-0">
@@ -28,10 +28,10 @@ const CourseDetails = () => {
                                 <i className="bi bi-book"> Course Details </i>
                             </h1>
                             {currentCourse ? (
-                                <div className="col">
+                                <div className="col" >
                                     <div className="card">
-                                        <img src={currentCourse.images} alt={currentCourse.title} className="card-img-top img-fluid" style={{ width: '50%' }} />
-                                        <div className="card-body">
+                                        <img src={currentCourse.images} alt={currentCourse.title} className="card-img-top img-fluid d-block mx-auto" style={{ width: '50%',margintop:"10px",paddingTop:"10px" }} />
+                                        <div className="card-body" >
                                             <h5 className="card-title pacifico-regular">{currentCourse.title}</h5>
                                             <h6 className="card-text asap">Course Description: {currentCourse.description}</h6>
                                             <h6 className="card-text asap">Course price: Rs.{currentCourse.price}</h6>

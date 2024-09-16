@@ -126,13 +126,13 @@ const CourseList = () => {
                         <div className="col mb-4 d-flex justify-content-center" key={course._id}>
                             <div className="card h-100" style={{ width: '350px', }}>
                                 {course.images && (
-                                    <img src={course.images[0]} alt={course.title} className="card-img-top img-fluid" style={{ border: '3px solid gold', borderRadius: '15%' }} />
+                                    <img src={course.images[0]} alt={course.title} className="card-img-top img-fluid " style={{ border: '3px solid gold', borderRadius: '15%' }} />
                                 )}
                                 <div className="card-body">
-                                    <h5 className="card-title pacifico-regular mb-3">{course.title}</h5>
+                                    <h5 className="card-title pacifico-regular mb-3" >{course.title}</h5>
                                     <p><strong>Category:</strong> {course.category}</p>
                                     <p><strong>Price:</strong> ${course.price}</p>
-                                    <div className="d-flex justify-content-between align-items-center mb-3">
+                                    <div className="d-flex justify-content-between align-items-center mb-3  ">
                                         {users && (users.role === 'admin' || users.role === 'instructor') && (<>
                                             <button className="btn btn-outline-info asap me-1" onClick={() => handleLessons(course._id)}>Lessons</button>
                                             <button className="btn btn-outline-info asap me-1" onClick={() => handleAssignments(course._id)}>Assignments</button>
@@ -148,7 +148,7 @@ const CourseList = () => {
                                             </>
                                         )}
                                         {users && (
-                                            <Link to={`/courses/${course._id}`} className="btn btn-primary me-2">
+                                            <Link to={`/courses/${course._id}`} className="btn btn-primary me-2 ">
                                                 See More
                                             </Link>
                                         )}
