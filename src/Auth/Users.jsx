@@ -27,9 +27,14 @@ const Users = () => {
             const confirmDelete = window.confirm("Are you sure you want to delete this user?");
             if (!confirmDelete) return;
 
+
+            const token = JSON.parse(localStorage.getItem('user'))?.token;
+            if (!token) {
+                return message.error('Authentication token missing. Please log in again.');
+            }
             await axios.delete(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${userId}`, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    Authorization:`Bearer ${token}`,
                 },
             });
             message.success("User Deleted.");
@@ -48,10 +53,14 @@ const Users = () => {
             if (!selectedUser.firstName || !selectedUser.lastName || !selectedUser.email || !selectedUser.role) {
                 return message.error("All fields are required.");
             }
+            const token = JSON.parse(localStorage.getItem('user'))?.token;
+            if (!token) {
+                return message.error('Authentication token missing. Please log in again.');
+            }
 
             await axios.put(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${selectedUser._id}`, selectedUser, {
                 headers: {
-                    Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    Authorization: `Bearer ${token}`,
                 },
             });
             message.success("User Updated.");

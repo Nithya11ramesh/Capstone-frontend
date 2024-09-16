@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
                 headers: {
                     'Authorization': `Bearer ${token}`,  // Use the token from localStorage
-                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/json',
                 },
             });
 
@@ -141,9 +141,9 @@ export const AuthProvider = ({ children }) => {
         }
     };
     useEffect(() => {
-        if (localStorage.getItem("token")) {
+       
             fetchUserDetails();
-        }
+        
     }, []);
 
     const fetchInstructors = async () => {
@@ -152,6 +152,7 @@ export const AuthProvider = ({ children }) => {
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/instructor', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
+                    
                 },
             });
             setInstructors(response.data);

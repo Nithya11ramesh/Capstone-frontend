@@ -50,7 +50,7 @@ const CreateLesson = () => {
 
     return (
         <Container sx={{ minHeight: '90vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Card sx={{ padding: '24px', maxWidth: '800px', margin: 'auto' }}>
+            <Card sx={{ padding: '24px', maxWidth: '800px', margin: 'auto' ,}}>
                 <Typography variant="h4" component="h2" gutterBottom align='center'>
                     Create Lesson
                 </Typography>
