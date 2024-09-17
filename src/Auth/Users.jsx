@@ -2,6 +2,7 @@
 
 
 
+
 import { useEffect, useContext, useState } from 'react';
 import { AuthContext } from '../ContextAPI/AuthContext';
 import axios from 'axios';
@@ -13,8 +14,15 @@ const Users = () => {
     const [selectedUser, setSelectedUser] = useState(null);
     const [editing, setEditing] = useState(false);
 
+    // useEffect(() => {
+    //     getAllUsers(); // Fetch all users on component mount
+    // }, []);
     useEffect(() => {
-        getAllUsers(); // Fetch all users on component mount
+        if (getAllUsers) {
+            getAllUsers(); // Fetch all users on component mount
+        } else {
+            console.error('getAllUsers function is not available from AuthContext.');
+        }
     }, []);
 
     const handleEdit = (user) => {
