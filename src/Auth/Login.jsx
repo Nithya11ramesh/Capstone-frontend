@@ -1,4 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+
 import  { useContext, useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -28,7 +29,6 @@ const Login = () => {
         try {
             await login(values);
             await fetchUserDetails();
-           
             setLoading(false);
         } catch (error) {
             message.error('Invalid credentials');
@@ -60,22 +60,21 @@ const Login = () => {
                 console.error(error);
             });
         }
-    }, [users]);
-
+    }, [users,fetchUserDetails]);
     return (
         <div className="container">
-            <div className="card mb-3 mt-3" style={{ border: '1px solid black' }}>
+            <div className="card mb-3">
                 <div className="row g-0">
-                    <div className="col-md-5 d-md-block ">
+                    <div className="col-md-5 d-md-block">
                         <img
-                            src="https://static.vecteezy.com/system/resources/previews/028/046/128/non_2x/users-access-emails-from-multiple-devices-vector.jpg"
+                            src="https://static.vecteezy.com/system/resources/previews/003/689/228/non_2x/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg"
                             className="img-fluid rounded-start login-image"
                             alt="Login Image"
                         />
                     </div>
                     <div className="col-md-7 col-12">
                         <div className="card-body">
-                            <h1 className="text-center pacifico-regular" style={{ color: 'blue' }}>
+                            <h1 className="text-center pacifico-regular" style={{ color: 'gray' }}>
                                 <i className="bi bi-person-fill"> Login</i>
                             </h1>
                             <Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={handleLogin}>
@@ -86,7 +85,6 @@ const Login = () => {
                                                 <i className="bi bi-envelope-at"> Email</i>
                                             </label>
                                             <Field
-                                            
                                                 type="email"
                                                 id="email"
                                                 name="email"

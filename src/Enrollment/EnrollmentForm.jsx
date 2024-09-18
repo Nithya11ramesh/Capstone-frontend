@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 
 
 import { useContext, useEffect } from 'react';
@@ -24,7 +25,7 @@ const EnrollmentForm = () => {
         } else {
             console.error("Course ID is undefined in useEffect");
         }
-    }, [courseId, fetchCourseById]);
+    }, [courseId]);
 
     useEffect(() => {
         if (!users) {

@@ -1,4 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+// /* eslint-disable react-hooks/exhaustive-deps */
+
 
 
 
@@ -54,30 +56,20 @@ const Users = () => {
     };
 
     
-
     const handleUpdate = async () => {
         try {
-            // Validate required fields
-            if (!selectedUser.firstName || !selectedUser.lastName || !selectedUser.email || !selectedUser.role) {
-                return message.error("All fields are required.");
-            }
-            const token = JSON.parse(localStorage.getItem('user'))?.token;
-            if (!token) {
-                return message.error('Authentication token missing. Please log in again.');
-            }
-
             await axios.put(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${selectedUser._id}`, selectedUser, {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
-            message.success("User Updated.");
             getAllUsers(); // Refresh the user list
             setEditing(false);
             setSelectedUser(null);
+            message.success("User Updated.")
         } catch (error) {
             console.error('Error updating user:', error);
-            message.error("Failed to update.");
+            message.error("Failed to update.")
         }
     };
     const handleChange = (e) => {
@@ -114,9 +106,6 @@ const Users = () => {
                         />
                         <TextField
                             label="Email"
-                            name="email"
-                            value={selectedUser.email}
-                            onChange={handleChange}
                             fullWidth
                             margin="normal"
                         />

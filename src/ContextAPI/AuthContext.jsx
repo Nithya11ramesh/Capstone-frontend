@@ -10,53 +10,51 @@ export const AuthProvider = ({ children }) => {
     const [usersDetails, setUsersDetails] = useState(null);
     const [instructors, setInstructors] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const [message, setMessage] = useState(null);
+    const [error, setError] = useState();
+    const [message, setMessage] = useState();
 
     // Function to fetch all users
     const getAllUsers = async () => {
-        try {
-            const token = JSON.parse(localStorage.getItem('user'))?.token;
-            if (!token) {
-                console.error('Authentication token missing. Please log in again.');
-                return;
-            }
+        setLoading(true);
+        setError(null);
 
+        try {
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/users', {
                 headers: {
-                    Authorization: `Bearer ${token}`,
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
+                    'Content-Type': 'application/json',
                 },
             });
-            setUsersDetails(response.data);
-        } catch (error) {
-            console.error('Error fetching users:', error);
-            setError('Failed to fetch users.');
-        }
-    };
-
-    // Fetch logged-in user's details
-    const fetchUserDetails = async () => {
-        const userData = JSON.parse(localStorage.getItem('user'));
-        const token = userData?.token;
-
-        if (token) {
-            try {
-                const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
-                    headers: {
-                        'Authorization': `Bearer ${token}`,
-                    },
-                });
-
-                console.log('User details fetched successfully:', response.data);
-                setUsers(response.data); // Assuming response.data contains the user data
-            } catch (error) {
-                console.error('Error fetching user details:', error);
+            if (response.data && Array.isArray(response.data)) {
+                setUsersDetails(response.data);
+                //console.log("Users Details:", response.data); // Check data format
+            } else {
+                console.warn("Unexpected response format:", response.data); // Debug output
             }
-        } else {
-            console.error('No token found');
+        } catch (err) {
+            console.error('User Fetching user:', err.response ? err.response.data : err.message);
+            setError(err.message || 'Failed to fetch users.');
+            setLoading(false);
         }
     };
 
+    const fetchUserDetails = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            });
+            setUsers(response.data);
+        } catch (error) {
+            console.error('Error fetching user details:', error);
+            setError(error.response ? error.response.data.message : error.message);
+        }
+    };
+    
+    
     // Update user details
     const updateUserDetails = async (updatedDetails) => {
         setLoading(true);
@@ -87,6 +85,7 @@ export const AuthProvider = ({ children }) => {
             });
             const userData = { ...response.data.user, token: response.data.token };
             localStorage.setItem('user', JSON.stringify(userData));
+            localStorage.setItem('token',response.data.token);
             setUsers(userData);
             console.log('Login successful. User data:', userData);
         } catch (error) {
@@ -158,9 +157,10 @@ export const AuthProvider = ({ children }) => {
 
     // Fetch user details on initial render
     useEffect(() => {
-        fetchUserDetails();
+        if (localStorage.getItem("token")) {
+            fetchUserDetails();
+        }
     }, []);
-
     return (
         <AuthContext.Provider
             value={{
