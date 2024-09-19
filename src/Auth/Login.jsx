@@ -11,6 +11,7 @@ import { EnrollmentContext } from '../ContextAPI/EnrollmentContext';
 const Login = () => {
     const [loading, setLoading] = useState(false);
     const { login, users, fetchUserDetails } = useContext(AuthContext);
+    // eslint-disable-next-line no-unused-vars
     const { fetchEnrollmentByUser } = useContext(EnrollmentContext);
     const navigate = useNavigate();
 
@@ -37,30 +38,49 @@ const Login = () => {
         }
     };
 
+    // useEffect(() => {
+    //     if (users && users._id) {
+    //         fetchEnrollmentByUser(users._id).then((enrollments) => {
+    //             if (users.role === 'admin') {
+    //                 message.success('Login successful! Redirecting to admin dashboard...');
+    //                 navigate('/admin-dashboard');
+    //             } else if (users.role === 'instructor') {
+    //                 message.success('Login successful! Redirecting to instructor dashboard...');
+    //                 navigate('/instructor-dashboard');
+    //             } else if (users.role === 'student') {
+    //                 if (enrollments.length > 0) {
+    //                     message.success('Login successful! Redirecting to student dashboard...');
+    //                     navigate('/student-dashboard');
+    //                 } else {
+    //                     message.success('Login successful! Please enroll in courses.');
+    //                     navigate('/courses');
+    //                 }
+    //             }
+    //         }).catch((error) => {
+    //             message.error('Error fetching enrollments');
+    //             console.error(error);
+    //         });
+    //     }
+    // }, [users]);
     useEffect(() => {
-        if (users && users._id) {
-            fetchEnrollmentByUser(users._id).then((enrollments) => {
-                if (users.role === 'admin') {
-                    message.success('Login successful! Redirecting to admin dashboard...');
-                    navigate('/admin-dashboard');
-                } else if (users.role === 'instructor') {
-                    message.success('Login successful! Redirecting to instructor dashboard...');
-                    navigate('/instructor-dashboard');
-                } else if (users.role === 'student') {
-                    if (enrollments.length > 0) {
-                        message.success('Login successful! Redirecting to student dashboard...');
-                        navigate('/student-dashboard');
-                    } else {
-                        message.success('Login successful! Please enroll in courses.');
-                        navigate('/courses');
-                    }
+        if (users) {
+            if (users.role === 'admin') {
+                message.success('Login successful! Redirecting to admin dashboard...');
+                navigate('/admin-dashboard');
+            } else if (users.role === 'instructor') {
+                message.success('Login successful! Redirecting to instructor dashboard...');
+                navigate('/instructor-dashboard');
+            } else if (users.role === 'student') {
+                if (users.enrollStatus === 'enrolled') {
+                    message.success('Login successful! Redirecting to student dashboard...');
+                    navigate('/student-dashboard');
+                } else {
+                    message.success('Login successful! Please enroll in courses.');
+                    navigate('/courses');
                 }
-            }).catch((error) => {
-                message.error('Error fetching enrollments');
-                console.error(error);
-            });
+            }
         }
-    }, [users,fetchUserDetails]);
+    }, [users]);
     return (
         <div className="container">
             <div className="card mb-3">

@@ -98,7 +98,10 @@ export const AuthProvider = ({ children }) => {
     // Logout function
     const logout = () => {
         setUsers(null);
+       
         localStorage.removeItem('user');
+        localStorage.removeItem('token'); // In case you're storing the token separately
+
         console.log('User logged out.');
     };
 
