@@ -44,11 +44,11 @@ export const AuthProvider = ({ children }) => {
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
-                    // 'Content-Type': 'application/json',
+                    'Content-Type': 'application/json',
                 },
             });
            
-          console.log(response.data);
+            setUsers(response.data);
         } catch (error) {
             console.error('Error fetching user details:', error);
             setError(error.response ? error.response.data.message : error.message);
