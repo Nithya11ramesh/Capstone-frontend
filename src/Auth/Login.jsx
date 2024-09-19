@@ -1,4 +1,4 @@
-/* eslint-disable no-unused-vars */
+
 /* eslint-disable react-hooks/exhaustive-deps */
 
 
@@ -41,7 +41,7 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
+      useEffect(() => {
         if (users && users._id) {
             fetchEnrollmentByUser(users._id).then((enrollments) => {
                 if (users.role === 'admin') {
@@ -59,14 +59,9 @@ const Login = () => {
                         navigate('/courses');
                     }
                 }
-            }).catch((error) => {
-                console.error("Error fetching enrollments:", error);
-            });
+            })
         }
-    }, [users,  fetchEnrollmentByUser]);
-    
-   
-    
+    }, [users]);
     return (
         <div className="container">
             <div className="card mb-3">
