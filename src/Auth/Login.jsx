@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
+
 
 import  { useContext, useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -12,6 +14,7 @@ const Login = () => {
     const [loading, setLoading] = useState(false);
     const { login, users, fetchUserDetails } = useContext(AuthContext);
    
+  
     const { fetchEnrollmentByUser } = useContext(EnrollmentContext);
     const navigate = useNavigate();
 
@@ -57,12 +60,13 @@ const Login = () => {
                     }
                 }
             }).catch((error) => {
-                message.error('Error fetching enrollments');
-                console.error(error);
+                console.error("Error fetching enrollments:", error);
             });
         }
-    }, [users]);
+    }, [users,  fetchEnrollmentByUser]);
+    
    
+    
     return (
         <div className="container">
             <div className="card mb-3">

@@ -40,7 +40,7 @@ export const AuthProvider = ({ children }) => {
 
     const fetchUserDetails = async () => {
         try {
-            const token = localStorage.getItem('token');
+         const token = JSON.parse(localStorage.getItem('user'))?.token;
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/details', {
                 headers: {
                     'Authorization': `Bearer ${token}`,
@@ -49,6 +49,7 @@ export const AuthProvider = ({ children }) => {
             });
            
             setUsers(response.data);
+            localStorage.setItem('user', JSON.stringify(response.data));
         } catch (error) {
             console.error('Error fetching user details:', error);
             setError(error.response ? error.response.data.message : error.message);
@@ -152,18 +153,18 @@ export const AuthProvider = ({ children }) => {
     };
 
     // Check for logged-in user on page load
-    useEffect(() => {
-        const loggedInUser = JSON.parse(localStorage.getItem('user'));
-        if (loggedInUser) {
-            setUsers(loggedInUser);
-        }
-    }, []);
+    // useEffect(() => {
+    //     const loggedInUser = JSON.parse(localStorage.getItem('user'));
+    //     if (loggedInUser) {
+    //         setUsers(loggedInUser);
+    //     }
+    // }, []);
 
     // Fetch user details on initial render
     useEffect(() => {
-        if (localStorage.getItem("token")) {
+        
             fetchUserDetails();
-        }
+        
     }, []);
     return (
         <AuthContext.Provider
