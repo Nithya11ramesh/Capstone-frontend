@@ -20,7 +20,7 @@ export const QuizProvider = ({ children }) => {
                 throw new Error('Course ID is not provided');
             }
 
-            const response = await axios.get(`http://localhost:5000/apiQuizzes/course/${courseId}`, {
+            const response = await axios.get(`https://capstone-backend-05tj.onrender.com/apiQuizzes/course/${courseId}`, {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
