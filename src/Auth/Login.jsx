@@ -61,7 +61,7 @@ const Login = () => {
                 console.error(error);
             });
         }
-    }, [users,fetchUserDetails]);
+    }, [users]);
    
     return (
         <div className="container">
