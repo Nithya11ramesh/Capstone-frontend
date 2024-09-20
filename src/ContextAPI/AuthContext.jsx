@@ -508,7 +508,7 @@ export const AuthProvider = ({ children }) => {
     const fetchInstructors = async () => {
         setLoading(true);
         try {
-            const token = JSON.parse(localStorage.getItem('user'))?.token;
+            const token = localStorage.getItem('token')
             const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiUsers/user/instructor', {
                 headers: {
                     Authorization: `Bearer ${token}`,
