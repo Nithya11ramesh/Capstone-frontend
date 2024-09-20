@@ -514,6 +514,7 @@ export const AuthProvider = ({ children }) => {
                 },
             });
             setInstructors(response.data);
+            
         } catch (error) {
             console.error("Error fetching instructor details:", error);
         } finally {
