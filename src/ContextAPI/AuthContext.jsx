@@ -457,8 +457,8 @@ export const AuthProvider = ({ children }) => {
                 },
             });
             const userData = { ...response.data.user, token: response.data.token };
-            localStorage.setItem('user', JSON.stringify(userData));
-            localStorage.setItem('token', response.data.token);
+             localStorage.setItem('user', JSON.stringify(userData));
+            localStorage.setItem('token', response.token);
             setUsers(userData);
             console.log('Login successful. User data:', userData);
         } catch (error) {
