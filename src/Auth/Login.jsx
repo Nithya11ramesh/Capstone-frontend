@@ -61,7 +61,7 @@ const Login = () => {
                 }
             })
         }
-    }, [users]);
+    }, [users,fetchEnrollmentByUser]);
     return (
         <div className="container">
             <div className="card mb-3">
