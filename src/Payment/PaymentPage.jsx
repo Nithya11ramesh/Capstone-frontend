@@ -45,7 +45,7 @@ const PaymentPage = () => {
 
             const amountToSend = price; // Amount in dollars
 
-            const response = await axios.post(`http://localhost:5000/apiPayments/payment/${enrollmentId}`, {
+            const response = await axios.post(`https://capstone-backend-05tj.onrender.com/apiPayments/payment/${enrollmentId}`, {
                 payment_method_id: paymentMethod.id,
                 amount: amountToSend, // Send amount in dollars
                 enrollment_id: enrollmentId,
