@@ -1,8 +1,6 @@
+/* eslint-disable no-unused-vars */
 
-/* eslint-disable react-hooks/exhaustive-deps */
-
-
-import  { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { AuthContext } from '../ContextAPI/AuthContext';
@@ -13,8 +11,6 @@ import { EnrollmentContext } from '../ContextAPI/EnrollmentContext';
 const Login = () => {
     const [loading, setLoading] = useState(false);
     const { login, users, fetchUserDetails } = useContext(AuthContext);
-   
-  
     const { fetchEnrollmentByUser } = useContext(EnrollmentContext);
     const navigate = useNavigate();
 
@@ -41,34 +37,33 @@ const Login = () => {
         }
     };
 
-      useEffect(() => {
-        if (users && users._id) {
-            fetchEnrollmentByUser(users._id).then((enrollments) => {
-                if (users.role === 'admin') {
-                    message.success('Login successful! Redirecting to admin dashboard...');
-                    navigate('/admin-dashboard');
-                } else if (users.role === 'instructor') {
-                    message.success('Login successful! Redirecting to instructor dashboard...');
-                    navigate('/instructor-dashboard');
-                } else if (users.role === 'student') {
-                    if (enrollments.length > 0) {
-                        message.success('Login successful! Redirecting to student dashboard...');
-                        navigate('/student-dashboard');
-                    } else {
-                        message.success('Login successful! Please enroll in courses.');
-                        navigate('/courses');
-                    }
+    useEffect(() => {
+        if (users) {
+            if (users.role === 'admin') {
+                message.success('Login successful! Redirecting to admin dashboard...');
+                navigate('/admin-dashboard');
+            } else if (users.role === 'instructor') {
+                message.success('Login successful! Redirecting to instructor dashboard...');
+                navigate('/instructor-dashboard');
+            } else if (users.role === 'student') {
+                if (users.enrollStatus === 'enrolled') {
+                    message.success('Login successful! Redirecting to student dashboard...');
+                    navigate('/student-dashboard');
+                } else {
+                    message.success('Login successful! Please enroll in courses.');
+                    navigate('/courses');
                 }
-            })
+            }
         }
-    }, [users,fetchEnrollmentByUser]);
+    }, [users,navigate]);
+
     return (
         <div className="container">
-            <div className="card mb-3">
+            <div className="card mb-3 mt-3" style={{ border: '2px solid black' }}>
                 <div className="row g-0">
-                    <div className="col-md-5 d-md-block">
+                    <div className="col-md-5 d-md-block" >
                         <img
-                            src="https://static.vecteezy.com/system/resources/previews/003/689/228/non_2x/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg"
+                            src="https://img.freepik.com/free-vector/login-concept-illustration_114360-739.jpg?uid=R160521068&ga=GA1.1.1419111530.1709450726&semt=ais_hybrid"
                             className="img-fluid rounded-start login-image"
                             alt="Login Image"
                         />

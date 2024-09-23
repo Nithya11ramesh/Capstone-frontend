@@ -1,5 +1,3 @@
-
- 
 /* eslint-disable no-unused-vars */
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useContext, useEffect, useState } from 'react';
@@ -14,7 +12,7 @@ const Header = () => {
     const { users, logout } = useContext(AuthContext); // Make sure AuthContext is correctly imported and provided
     const { enrollments, fetchEnrollmentByUser, loading, error } = useContext(EnrollmentContext);
     const [filteredEnrollments, setFilteredEnrollments] = useState([]);
-    const [showSmartBar, setShowSmartBar] = useState(true);
+     const [showSmartBar, setShowSmartBar] = useState(true);
   
     const navigate = useNavigate();
 
@@ -24,9 +22,9 @@ const Header = () => {
     
     };
     
-    const handleCloseSmartBar = () => {
-        setShowSmartBar(false);
-    };
+     const handleCloseSmartBar = () => {
+     setShowSmartBar(false);
+   };
     
     useEffect(() => {
         if (users && users.userId) {

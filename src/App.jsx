@@ -1,5 +1,5 @@
 
-
+import PrivateRoute from './PrivateRoute';
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import './Styles/Main.css';
@@ -61,7 +61,7 @@ import PaymentPage from './Payment/PaymentPage';
 import CourseProgress from './DashBoards/CourseProgress';
 
 function App() {
-  const isAuthenticated = !!localStorage.getItem('token');
+ 
   return (
     <AuthProvider>
       <CourseProvider>
@@ -81,37 +81,40 @@ function App() {
                       <Route path='/forgot-password' element={<ForgotPassword />} />
                       <Route path='/reset-password/:token' element={<ResetPassword />} />
                       <Route path='/courses' element={<CourseList />} />
-                      {isAuthenticated ? (
-                        <>
-                          <Route path='/users-details' element={<Users />} />
-                          <Route path='/admin-dashboard' element={<AdminDashboard />} />
-                          <Route path='/instructor-dashboard' element={<InstructorDashBoard />} />
-                          <Route path='/student-dashboard' element={<StudentDashboard />} />
-                          <Route path='/courses/:courseId' element={<CourseDetails />} />
-                          <Route path='/create-course' element={<CreateCourseForm />} />
-                          <Route path='/course-edit/:courseId' element={<CourseEditForm />} />
-                          <Route path='/enroll/:courseId' element={<EnrollmentForm />} />
-                          <Route path='/enroll' element={<EnrollmentList />} />
-                          <Route path='/enroll-details' element={<EnrollmentDetails />} />
-                          <Route path='/enroll-edit/:enrollmentId' element={<EnrollmentEditForm />} />
-                          <Route path='/assignments/:courseId' element={<AssignmentList />} />
-                          <Route path='/create-assignment/:courseId' element={<CreateAssignmentForm />} />
-                          <Route path='/submit/:assignmentId' element={<SubmissionForm />} />
-                          <Route path='/submissionList/:assignmentId' element={<SubmissionList />} />
-                          <Route path='/quizzes/:courseId' element={<QuizList />} />
-                          <Route path='/create-quiz/:courseId' element={<CreateQuizForm />} />
-                          <Route path='/quiz-edit/:quizId' element={<EditQuizForm />} />
-                          <Route path='/quiz-submission/:quizId' element={<QuizSubmissionForm />} />
-                          <Route path='//quiz-submission-list/:quizId' element={<QuizSubmissionList />} />
-                          <Route path='/payment/:enrollmentId' element={<PaymentPage />} />
-                          <Route path='/lessons/:courseId' element={<LessonList />} />
-                          <Route path='/create-lesson/:courseId' element={<CreateLesson />} />
-                          <Route path='/edit-lesson/:lessonId' element={<LessonEditForm />} />
-                          <Route path='/lesson-detailed/:lessonId' element={<LessonDetailed />} />
-                          <Route path='/progress-report/:courseId' element={<CourseProgress />} />
-                          <Route path="/payment-success" element={<PaymentSuccessPage />} />
-                        </>
-                      ) : (<Route path="*" element={<Navigate to="/login" />} />)}
+                    
+                     
+
+                      {/* Private Routes */}
+                      <Route path='/users-details' element={<PrivateRoute><Users /></PrivateRoute>} />
+                      <Route path='/admin-dashboard' element={<PrivateRoute><AdminDashboard /></PrivateRoute>} />
+                      <Route path='/instructor-dashboard' element={<PrivateRoute><InstructorDashBoard /></PrivateRoute>} />
+                      <Route path='/student-dashboard' element={<PrivateRoute><StudentDashboard /></PrivateRoute>} />
+                      <Route path='/courses/:courseId' element={<PrivateRoute><CourseDetails /></PrivateRoute>} />
+                      <Route path='/create-course' element={<PrivateRoute><CreateCourseForm /></PrivateRoute>} />
+                      <Route path='/course-edit/:courseId' element={<PrivateRoute><CourseEditForm /></PrivateRoute>} />
+                      <Route path='/enroll/:courseId' element={<PrivateRoute><EnrollmentForm /></PrivateRoute>} />
+                      <Route path='/enroll' element={<PrivateRoute><EnrollmentList /></PrivateRoute>} />
+                      <Route path='/enroll-details' element={<PrivateRoute><EnrollmentDetails /></PrivateRoute>} />
+                      <Route path='/enroll-edit/:enrollmentId' element={<PrivateRoute><EnrollmentEditForm /></PrivateRoute>} />
+                      <Route path='/assignments/:courseId' element={<PrivateRoute><AssignmentList /></PrivateRoute>} />
+                      <Route path='/create-assignment/:courseId' element={<PrivateRoute><CreateAssignmentForm /></PrivateRoute>} />
+                      <Route path='/submit/:assignmentId' element={<PrivateRoute><SubmissionForm /></PrivateRoute>} />
+                      <Route path='/submissionList/:assignmentId' element={<PrivateRoute><SubmissionList /></PrivateRoute>} />
+                      <Route path='/quizzes/:courseId' element={<PrivateRoute><QuizList /></PrivateRoute>} />
+                      <Route path='/create-quiz/:courseId' element={<PrivateRoute><CreateQuizForm /></PrivateRoute>} />
+                      <Route path='/quiz-edit/:quizId' element={<PrivateRoute><EditQuizForm /></PrivateRoute>} />
+                      <Route path='/quiz-submission/:quizId' element={<PrivateRoute><QuizSubmissionForm /></PrivateRoute>} />
+                      <Route path='//quiz-submission-list/:quizId' element={<PrivateRoute><QuizSubmissionList /></PrivateRoute>} />
+                      <Route path='/payment/:enrollmentId' element={<PrivateRoute><PaymentPage /></PrivateRoute>} />
+                      <Route path='/lessons/:courseId' element={<PrivateRoute><LessonList /></PrivateRoute>} />
+                      <Route path='/create-lesson/:courseId' element={<PrivateRoute><CreateLesson /></PrivateRoute>} />
+                      <Route path='/edit-lesson/:lessonId' element={<PrivateRoute><LessonEditForm /></PrivateRoute>} />
+                      <Route path='/lesson-detailed/:lessonId' element={<PrivateRoute><LessonDetailed /></PrivateRoute>} />
+                      <Route path='/progress-report/:courseId' element={<PrivateRoute><CourseProgress /></PrivateRoute>} />
+                      <Route path="/payment-success" element={<PrivateRoute><PaymentSuccessPage /></PrivateRoute>} />
+
+                      {/* Redirect non-authenticated users */}
+                      <Route path="*" element={<Navigate to="/login" />} />
                     </Routes>
                   </div>
                   <Footer />

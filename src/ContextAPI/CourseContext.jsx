@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import  { createContext, useEffect, useState } from 'react';
+
+import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
 export const CourseContext = createContext();
 
@@ -13,7 +15,7 @@ export const CourseProvider = ({ children }) => {
     const fetchCourses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiCourses/getCourses', {
+            const response = await axios.get('https://capstone-backend-05tj.onrender.com/apiCourses/getcourses', {
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`,
                 },
