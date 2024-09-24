@@ -29,8 +29,8 @@ const StudentDashboard = () => {
     };
 
     return (
-        <div className="container-fluid p-3">
-            <div className="container p-0">
+        <div className="container-fluid p-3" >
+            <div className="container p-0"style={{ border: '2px solid gold' }}>
                 {loading && <p>Loading...</p>}
                 {error && <p>Error: {error}</p>}
                 {users ? (

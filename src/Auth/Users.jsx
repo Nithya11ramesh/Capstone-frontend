@@ -33,29 +33,24 @@ const Users = () => {
         setEditing(true);
     };
     const handleDelete = async (userId) => {
+        const confirmDelete = window.confirm("Are you sure you want to delete this user?");
+        if (!confirmDelete) return; // Exit if the user cancels
+    
         try {
-            // Confirm before deleting
-            const confirmDelete = window.confirm("Are you sure you want to delete this user?");
-            if (!confirmDelete) return;
-
-
-            const token = JSON.parse(localStorage.getItem('user'))?.token;
-            if (!token) {
-                return message.error('Authentication token missing. Please log in again.');
-            }
             await axios.delete(`https://capstone-backend-05tj.onrender.com/apiUsers/users/${userId}`, {
                 headers: {
-                    Authorization:`Bearer ${token}`,
+                    Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
             });
             message.success("User Deleted.");
-            getAllUsers(); // Refresh the user list
+            getAllUsers(); // Refresh the user list after deletion
         } catch (error) {
             console.error('Error deleting user:', error);
-            message.error("Failed to Delete.");
+            message.error("Failed to delete.");
         }
     };
 
+          
     
     const handleUpdate = async () => {
         try {

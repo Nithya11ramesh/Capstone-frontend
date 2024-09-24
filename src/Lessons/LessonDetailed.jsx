@@ -55,7 +55,7 @@ const LessonDetailed = () => {
     if (!lesson) return <div>Loading...</div>;
 
     return (
-        <Container>
+        <Container >
             <Card>
                 <CardBody>
                     <Typography variant="h4">{lesson.session}</Typography>

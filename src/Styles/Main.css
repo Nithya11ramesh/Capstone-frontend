@@ -53,3 +53,28 @@ body, html {
         opacity: 1; /* End fully visible */
       }
     }
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden; /* Prevent horizontal scrolling */
+      overflow-y: auto;   /* Enable vertical scrolling */
+      scroll-behavior: smooth; /* Optional: Smooth scrolling */
+  }
+  
+  .main-content {
+      margin-top: 0;
+      padding-top: 0;
+  }
+  
+  /* If you're using a header, make sure it doesn't push the content down */
+  header {
+      margin-bottom: 0;
+      padding-bottom: 0;
+  }
+  
+  /* Optional: Ensure footer doesn't create unnecessary space */
+  footer {
+      margin-top: 0;
+      padding-top: 0;
+  }
+  
