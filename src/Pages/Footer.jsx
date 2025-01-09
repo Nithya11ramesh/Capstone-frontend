@@ -79,7 +79,7 @@ const Footer = () => {
                 {/* Bottom Section */}
                 <Row className="container-fluid py-2 text-center">
                     <Col md={12}>
-                        <p>&copy; {new Date().getFullYear()} Road to Knowledge. All rights reserved.</p>
+                        <p>&copy; {new Date().getFullYear()} SmartLearn. All rights reserved.</p>
                     </Col>
                 </Row>
             </footer>
