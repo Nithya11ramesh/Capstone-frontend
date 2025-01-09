@@ -38,7 +38,7 @@ const Footer = () => {
                           
                            <li><a href="/affiliate" className="text-light text-decoration-none">Affiliate</a></li>
                             <li><a href="/investors" className="text-light text-decoration-none">Investors</a></li>
-                            <li><a href="/Blogs" className="text-light text-decoration-none">Blogs</a></li>
+                           
                         </ul>
                     </Col>
 
