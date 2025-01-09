@@ -31,8 +31,9 @@ const Footer = () => {
                     </Col>
 
                     <Col md={1} className="text-center mb-md-2">
-                        <h5>Resources</h5>
+                        
                         <ul className="list-unstyled">
+                              <li><a href="/Resources" className="text-light text-decoration-none">Resources</a></li>
                             <li><a href="/careers" className="text-light text-decoration-none">Careers</a></li>
                             <li><a href="/blog" className="text-light text-decoration-none">Blog</a></li>
                             
