@@ -157,7 +157,7 @@ const Home = () => {
       <div className="col d-sm-flex flex-row-reverse pt-5 ">
         <div className="col">
           <img 
-            src="https://www.guvi.in/build/q-yzbUD9Ue.webp"
+            src="https://www.guvi.in/assets/DUN3iNaq-women-with-notebook-latest.webp"
             className="float-start"
             style={{ width: "100%" }}
             alt="Upskilling"
