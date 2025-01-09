@@ -233,16 +233,16 @@ const Home = () => {
         <Typography variant="h4">We are accredited by</Typography>
         <div className="d-sm-flex pt-1">
           <div className="col text-wrap pt-5 ms-2 text-center">
-            <img src="https://www.guvi.in/build/q-BWNJf4_3.webp" style={{ height: 74 ,border: '1px solid beige'}} alt="Accreditation 1" />
+            <img src="https://www.guvi.in/assets/CvhGgDyu-nsdc.webp" style={{ height: 74 ,border: '1px solid beige'}} alt="Accreditation 1" />
           </div>
           <div className="col text-wrap pt-5 ms-2 text-center">
-            <img src="https://www.guvi.in/build/q-DQ_fo4G_.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 2" />
+            <img src="https://www.guvi.in/assets/B-STQWvH-aicte.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 2" />
           </div>
           <div className="col text-wrap pt-5 ms-2 text-center">
-            <img className="mx-auto d-block" src="https://www.guvi.in/build/q-CvhGgDyu.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 3" />
+            <img className="mx-auto d-block" src="https://www.guvi.in/assets/BPo5yKTe-google-for-education.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 3" />
           </div>
           <div className="col text-wrap pt-5 ms-2 text-center">
-            <img className="mx-auto d-block" src="https://www.guvi.in/build/q-BPo5yKTe.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 4" />
+            <img className="mx-auto d-block" src="https://www.guvi.in/assets/BVIwRC1Z-iso.webp" style={{ height: 74,border:'1px solid beige' }} alt="Accreditation 4" />
           </div>
         </div>
 
