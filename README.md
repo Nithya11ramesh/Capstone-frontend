@@ -1,8 +1,6 @@
 LEARNING MANAGEMENT SYSTEM(LMS)
 
-             An LMS project involves connecting a new Learning Management System (LMS) to an organization's technology stack.A learning management system (LMS) or virtual learning 
-            environment (VLE) is a software application for the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, 
-             materials or learning and development programs.
+             An LMS project involves connecting a new Learning Management System (LMS) to an organization's technology stack.A learning management system (LMS) or virtual learning environment (VLE) is a software application for the administration, documentation, tracking, reporting, automation, and delivery of educational courses, training programs, materials or learning and development programs.
 
 Project Description:
 
