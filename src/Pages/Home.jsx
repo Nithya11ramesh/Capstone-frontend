@@ -116,7 +116,7 @@ const Home = () => {
           All the skills you need in one place
         </Typography>
         <Typography variant="body1">
-          From critical skills to technical topics, Road to Knowledge supports your professional development.
+          From critical skills to technical topics, Smart Learn supports your professional development.
         </Typography>
       </div>
 
