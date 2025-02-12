@@ -123,7 +123,7 @@ const Home = () => {
       {/* Sale Announcement Section */}
       <div style={{ position: 'relative', width: '100%', height: '300px' }}>
         <img
-          src="https://img-b.udemycdn.com/notices/web_carousel_slide/image/df60a0a5-b916-4784-935a-e47b347e586d.png"
+          src="https://images.yourstory.com/cs/2/79900dd0d91311e8a16045a90309d734/ProfitableEducationTechnologyBusinesses1573121019570png?fm=png&auto=format&blur=500"
           alt="Sale Announcement"
           style={{
             position: 'absolute',
