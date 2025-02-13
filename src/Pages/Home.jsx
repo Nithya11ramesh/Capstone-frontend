@@ -123,7 +123,7 @@ const Home = () => {
       {/* Sale Announcement Section */}
       <div style={{ position: 'relative', width: '100%', height: '300px' }}>
         <img
-          src="https://images.yourstory.com/cs/2/79900dd0d91311e8a16045a90309d734/ProfitableEducationTechnologyBusinesses1573121019570png?fm=png&auto=format&blur=500"
+          src="https://goto.now/nuQeq"
           alt="Sale Announcement"
           style={{
             position: 'absolute',
@@ -188,7 +188,7 @@ const Home = () => {
         </Typography>
 
         <Typography variant="body1" paragraph>
-          At Road to Knowledge, our mission is to provide a comprehensive and engaging learning experience. Whether you are looking to improve your coding skills or advance in your career, we offer a variety of features to help you succeed:
+          At Smart Learn, our mission is to provide a comprehensive and engaging learning experience. Whether you are looking to improve your coding skills or advance in your career, we offer a variety of features to help you succeed:
         </Typography>
 
         <Grid container spacing={4}>
